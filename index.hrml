@@ -1,1 +1,162 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GemChess Academy | Master the Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); }
+
+        /* Piece Gliding Animation */
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, -30px) rotate(10deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+        .chess-piece-bg {
+            position: absolute;
+            opacity: 0.05;
+            animation: float 8s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <a href="https://wa.me/2348149435262" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp text-2xl mr-2"></i>
+        <span>Founder Online</span>
+    </a>
+
+    <nav class="flex justify-between items-center px-8 py-6 bg-white shadow-sm sticky top-0 z-50">
+        <div class="flex items-center space-x-2">
+            <div class="bg-indigo-900 text-white p-2 rounded-lg">
+                <i class="fas fa-chess-knight text-xl"></i>
+            </div>
+            <span class="text-2xl font-black tracking-tighter text-indigo-900">GEMCHESS</span>
+        </div>
+        <div class="hidden md:flex space-x-8 font-bold text-slate-600">
+            <a href="#puzzles" class="hover:text-emerald-500 transition">Daily Tactics</a>
+            <a href="book.html" class="hover:text-emerald-500 transition">Workbooks</a>
+            <a href="engine.html" class="hover:text-emerald-500 transition">Play Bot</a>
+            <a href="arena.html" class="bg-indigo-900 text-white px-5 py-2 rounded-full hover:bg-emerald-500 transition">Online Arena</a>
+        </div>
+    </nav>
+
+    <header class="relative bg-indigo-950 py-24 px-8 overflow-hidden">
+        <i class="fas fa-chess-queen text-white text-9xl chess-piece-bg" style="top: 10%; left: 5%;"></i>
+        <i class="fas fa-chess-king text-white text-[12rem] chess-piece-bg" style="bottom: 10%; right: 5%; animation-delay: 2s;"></i>
+        
+        <div class="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <span class="text-emerald-400 font-bold tracking-widest uppercase text-sm">Elevate Your Strategy</span>
+                <h2 class="text-5xl md:text-7xl font-black text-white mt-4 leading-tight">
+                    Build Your <span class="text-emerald-500">Grandmaster</span> Mindset.
+                </h2>
+                <p class="text-indigo-200 text-xl mt-6 mb-10">
+                    The leading chess academy for kids. From your first move to tournament checkmates.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="arena.html" class="bg-emerald-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-emerald-500/30 transition">Start Playing</a>
+                    <a href="#puzzles" class="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition">Daily Puzzles</a>
+                </div>
+            </div>
+            <div class="relative" data-aos="zoom-in">
+                <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800" 
+                     alt="Chess Academy" class="rounded-3xl shadow-2xl border-8 border-white/10">
+            </div>
+        </div>
+    </header>
+
+    <section id="puzzles" class="py-24 px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h3 class="text-4xl font-black text-indigo-900">Tactic of the Day</h3>
+            <div class="h-1 w-20 bg-emerald-500 mx-auto mt-4"></div>
+            <p class="mt-4 text-slate-500">Can you find the best move? Solve the Lichess daily puzzle below.</p>
+        </div>
+        
+        <div class="rounded-3xl shadow-2xl overflow-hidden border-8 border-white bg-white" data-aos="fade-up">
+            <iframe src="https://lichess.org/training/frame?theme=brown&bg=light" 
+                    style="width: 100%; height: 600px;" 
+                    allowtransparency="true" frameborder="0"></iframe>
+        </div>
+    </section>
+
+    <section class="bg-slate-100 py-24 px-8">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            
+            <div class="glass-card p-10 rounded-3xl group hover:bg-indigo-900 transition duration-500" data-aos="flip-left">
+                <div class="bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-emerald-500 transition">
+                    <i class="fas fa-book-open text-2xl text-indigo-900 group-hover:text-white"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-indigo-900 mb-4 group-hover:text-white">Workbooks</h4>
+                <p class="text-slate-500 mb-8 group-hover:text-indigo-200">Study our curated curriculum and download weekly puzzle books.</p>
+                <a href="book.html" class="font-bold text-indigo-600 group-hover:text-emerald-400">Enter Library →</a>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl group hover:bg-indigo-900 transition duration-500" data-aos="flip-left" data-aos-delay="100">
+                <div class="bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-emerald-500 transition">
+                    <i class="fas fa-microchip text-2xl text-indigo-900 group-hover:text-white"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-indigo-900 mb-4 group-hover:text-white">Gem Engine</h4>
+                <p class="text-slate-500 mb-8 group-hover:text-indigo-200">Challenge our custom AI. Choose your difficulty and sharpen your skills.</p>
+                <a href="engine.html" class="font-bold text-indigo-600 group-hover:text-emerald-400">Play GemBot →</a>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl group hover:bg-indigo-900 transition duration-500" data-aos="flip-left" data-aos-delay="200">
+                <div class="bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-emerald-500 transition">
+                    <i class="fas fa-globe text-2xl text-indigo-900 group-hover:text-white"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-indigo-900 mb-4 group-hover:text-white">Online Arena</h4>
+                <p class="text-slate-500 mb-8 group-hover:text-indigo-200">Play against your friends or other students from the academy in real-time.</p>
+                <a href="arena.html" class="font-bold text-indigo-600 group-hover:text-emerald-400">Join Arena →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-indigo-950 text-indigo-300 py-12 px-8 text-center">
+        <p class="font-bold">&copy; 2026 GemChess Academy. All Rights Reserved.</p>
+        <p class="text-sm mt-2 opacity-50">Empowering the next generation of Kings and Queens.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
